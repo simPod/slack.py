@@ -77,6 +77,7 @@ def channels(ctx, id, exclude_archived, starts_with,
     client = ctx.obj['client']
     channels = client.channels(**default_options(
         exclude_archived=exclude_archived,
+        types='public_channel,private_channel',
         starts_with=starts_with,
         contains=contains,
         exclude_members=True

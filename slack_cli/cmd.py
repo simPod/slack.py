@@ -44,7 +44,7 @@ class ListChannels(ChannelSubCommand):
                 archived=yes_no(channel.is_archived),
                 general=yes_no(channel.is_general),
                 private=yes_no(channel.is_private),
-                members=channel.num_members))
+                members=2))
 
         self.echo('\n' + '=' * len(header))
         msg = click.style(str(report['total']), reset=True)
@@ -117,10 +117,10 @@ class ActionChannelSubcommand(ChannelSubCommand):
 
 
 class DeleteChannels(ActionChannelSubcommand):
-    SLACK_API_METHOD = 'channels.delete'
+    SLACK_API_METHOD = 'conversations.delete'
     TITLE_MESSAGE = 'Deleting Channels'
 
 
 class ArchiveChannels(ActionChannelSubcommand):
-    SLACK_API_METHOD = 'channels.archive'
+    SLACK_API_METHOD = 'conversations.archive'
     TITLE_MESSAGE = 'Archiving Channels'

@@ -77,7 +77,7 @@ class HighLevelSlackClient(object):
 
     @filtered
     def channels(self, **kwargs):
-        resp = self.__request('channels.list', **kwargs)
+        resp = self.__request('conversations.list', **kwargs)
 
         for channel in resp['channels']:
             for filter in self.filters.values():
